@@ -1,7 +1,6 @@
 package pt.vilhena.timeandweatherapp
 
 import android.content.Context
-import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
@@ -38,7 +37,7 @@ class GridItemAdapter(
         var choosedCity = citiesName[p0]
 
         cityNameTextView.text = choosedCity.name
-        cityTime.text = choosedCity.currentTime
+        cityTime.text = choosedCity.currentTemperature
 
         return view
     }

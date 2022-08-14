@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Time and Weatherapp</string>
+    <string name="Lisbon">Lisboa</string>
+    <string name="Madrid">Madrid</string>
+    <string name="Paris">Paris</string>
+    <string name="Berlin">Berlim</string>
+    <string name="Copenhagen">Copenhaga</string>
+    <string name="Rome">Roma</string>
+    <string name="London">Londres</string>
+    <string name="Dublin">Dublin</string>
+    <string name="Prague">Praga</string>
+    <string name="Vienna">Viena</string>
+</resources>

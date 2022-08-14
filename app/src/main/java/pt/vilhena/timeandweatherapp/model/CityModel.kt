@@ -3,10 +3,10 @@ package pt.vilhena.timeandweatherapp.model
 class CityModel {
 
     var name: String? = null
-    var currentTime: String? = null
+    var currentTemperature: String? = null
 
-    constructor(name: String?, currentTime: String?) {
+    constructor(name: String?, currentTemperature: String?) {
         this.name = name
-        this.currentTime = currentTime
+        this.currentTemperature = currentTemperature
     }
 }
