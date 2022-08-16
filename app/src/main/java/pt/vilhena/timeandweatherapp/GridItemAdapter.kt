@@ -4,8 +4,12 @@ import android.content.Context
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.ImageView
 import android.widget.TextView
+import com.squareup.picasso.Callback
+import com.squareup.picasso.Picasso
 import pt.vilhena.timeandweatherapp.model.CityModel
+import java.lang.Exception
 
 class GridItemAdapter(
     private val context: Context,
@@ -13,7 +17,9 @@ class GridItemAdapter(
 ) : BaseAdapter() {
 
     lateinit var cityNameTextView : TextView
-    lateinit var cityTime : TextView
+    lateinit var cityTemperature : TextView
+    lateinit var cityHumidity: TextView
+    lateinit var weatherImage: ImageView
 
     override fun getCount(): Int {
         return citiesName.size
@@ -32,12 +38,31 @@ class GridItemAdapter(
         var view: View = View.inflate(context, R.layout.grid_item, null)
 
         cityNameTextView = view.findViewById(R.id.cityNameTextField)
-        cityTime = view.findViewById(R.id.cityTimeTextField)
+        cityTemperature = view.findViewById(R.id.temperature)
+        cityHumidity = view.findViewById(R.id.humidity)
+        weatherImage = view.findViewById(R.id.weatherImage)
 
         var choosedCity = citiesName[p0]
+        val currentWeather = choosedCity.currentWeather?.getWeather()
+        val icon = currentWeather?.get(0)?.getIcon()
 
         cityNameTextView.text = choosedCity.name
-        cityTime.text = choosedCity.currentTemperature
+        cityTemperature.text = choosedCity.currentWeather?.getMain()?.getTemp().toString() + "º"
+        cityHumidity.text = choosedCity.currentWeather?.getMain()?.getHumidity().toString() + "%"
+
+        val iconURL = "http://openweathermap.org/img/wn/" + icon +".png"
+        Picasso.get().load(iconURL).fit().into(weatherImage, object: Callback {
+            override fun onSuccess() {
+                println("Got Image from: " + choosedCity.name)
+                notifyDataSetChanged()
+            }
+
+            override fun onError(e: Exception?) {
+                println("URL: " + iconURL)
+                e?.printStackTrace()
+            }
+        })
+
 
         return view
     }

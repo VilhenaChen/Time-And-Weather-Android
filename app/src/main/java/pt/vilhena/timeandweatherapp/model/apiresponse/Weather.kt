@@ -2,8 +2,9 @@ package pt.vilhena.timeandweatherapp.model.apiresponse
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
-class Weather {
+class Weather: Serializable {
     @SerializedName("id")
     @Expose
     private var id = 0

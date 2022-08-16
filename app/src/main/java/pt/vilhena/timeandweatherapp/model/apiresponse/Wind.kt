@@ -2,8 +2,9 @@ package pt.vilhena.timeandweatherapp.model.apiresponse
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
-class Wind {
+class Wind: Serializable {
     @SerializedName("speed")
     @Expose
     private var speed = 0f

@@ -3,8 +3,9 @@ package pt.vilhena.timeandweatherapp.model
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 import pt.vilhena.timeandweatherapp.model.apiresponse.*
+import java.io.Serializable
 
-class WeatherResponse {
+class WeatherResponse: Serializable {
     @SerializedName("coord")
     @Expose
     private var coord: Coord? = null
