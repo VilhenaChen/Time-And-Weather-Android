@@ -34,7 +34,7 @@ class CityInformation_Activity : AppCompatActivity() {
         val icon = weather.getWeather()?.get(0)?.getIcon()
 
         val iconURL = "http://openweathermap.org/img/wn/" + icon +".png"
-        Picasso.get().load(iconURL).into(image)
+        Picasso.get().load(iconURL).placeholder(R.drawable._0d).into(image)
 
         if( weather.getSys()?.getCountry() != null) {
             cityName.text = this.cityName + ", " + (weather.getSys()?.getCountry())
