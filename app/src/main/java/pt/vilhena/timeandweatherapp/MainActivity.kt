@@ -55,23 +55,4 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-//    private fun setCities(): ArrayList<CityModel> {
-//       val data = Data()
-//        data.getWeatherFromAPI()
-//
-//        val arrayList: ArrayList<CityModel> = ArrayList()
-//        arrayList.add(CityModel("Current Location", "00:00"))
-//        arrayList.add(CityModel("Lisboa", "00:00"))
-//        arrayList.add(CityModel("Madrid", "00:00"))
-//        arrayList.add(CityModel("Paris", "00:00"))
-//        arrayList.add(CityModel("Berlim", "00:00"))
-//        arrayList.add(CityModel("Copenhaga", "00:00"))
-//        arrayList.add(CityModel("Roma", "00:00"))
-//        arrayList.add(CityModel("Londres", "00:00"))
-//        arrayList.add(CityModel("Dublin", "00:00"))
-//        arrayList.add(CityModel("Praga", "00:00"))
-//        arrayList.add(CityModel("Viena", "00:00"))
-//
-//        return arrayList
-//    }
 }

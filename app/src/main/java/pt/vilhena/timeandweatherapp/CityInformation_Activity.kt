@@ -23,11 +23,11 @@ class CityInformation_Activity : AppCompatActivity() {
     fun viewBindings() {
         val image: ImageView = findViewById(R.id.weatherImage)
         val cityName: TextView = findViewById(R.id.cityName)
-        //val weatherDescription: TextView = findViewById(R.id.weatherDescription)
+        val weatherDescription: TextView = findViewById(R.id.weatherDescription)
         val currentTemperature: TextView = findViewById(R.id.currentTemperature)
         //val feelsLike: TextView = findViewById(R.id.fellsLike)
         val minMaxTemperature: TextView = findViewById(R.id.minMaxTemp)
-        //val maxTemperature: TextView = findViewById(R.id.maxTemp)
+        val humidity: TextView = findViewById(R.id.humidity)
 
         val icon = weather.getWeather()?.get(0)?.getIcon()
 
@@ -35,11 +35,10 @@ class CityInformation_Activity : AppCompatActivity() {
         Picasso.get().load(iconURL).into(image)
 
         cityName.text = this.cityName
-        //weatherDescription.text = weather.getWeather()?.get(0)?.getDescription()
+        weatherDescription.text = weather.getWeather()?.get(0)?.getDescription()
         currentTemperature.text = weather.getMain()?.getTemp().toString() + "º"
-        //feelsLike.text = weather.getMain()?.getFeelsLike().toString() + "º"
         minMaxTemperature.text = weather.getMain()?.getTempMin().toString() + "º" + "/" + weather.getMain()?.getTempMax().toString() + "º"
-        //maxTemperature.text = weather.getMain()?.getTempMax().toString() + "º"
+        humidity.text = weather.getMain()?.getHumidity().toString() + "%"
 
     }
 }

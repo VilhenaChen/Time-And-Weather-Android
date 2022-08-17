@@ -11,38 +11,48 @@
 
         <ImageView
             android:id="@+id/weatherImage"
-            android:layout_width="300sp"
-            android:layout_height="300sp"
+            android:layout_width="200sp"
+            android:layout_height="200sp"
             android:src="@drawable/_0d">
         </ImageView>
 
-        <TextView
-            android:id="@+id/cityName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Today"
-            android:textSize="30sp">
-        </TextView>
         <TextView
             android:id="@+id/currentTemperature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="21º"
-            android:textSize="25sp">
+            android:textSize="50sp"
+            android:textColor="#00BCD4">
+        </TextView>
+
+        <TextView
+            android:id="@+id/weatherDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Lisbon"
+            android:textSize="15sp">
+        </TextView>
+
+        <TextView
+            android:id="@+id/cityName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Lisbon"
+            android:textSize="30sp">
         </TextView>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="20sp">
 
             <LinearLayout
                 android:layout_width="150sp"
                 android:layout_height="120sp"
                 android:orientation="vertical"
                 android:background="@drawable/round_rec_only_border"
-                android:gravity="center"
-                android:layout_marginRight="20sp">
+                android:gravity="center">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -79,6 +89,46 @@
 
             </LinearLayout>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20sp">
+
+            <LinearLayout
+                android:layout_width="150sp"
+                android:layout_height="120sp"
+                android:orientation="vertical"
+                android:background="@drawable/round_rec_only_border"
+                android:gravity="center"
+                android:layout_marginRight="20sp">
+
+
+                <ImageView
+                    android:layout_width="50sp"
+                    android:layout_height="50sp"
+                    android:src="@drawable/ic_humidityicon">
+                </ImageView>
+
+                <TextView
+                    android:id="@+id/humidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="10º/24º"
+                    android:textAlignment="center">
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/humidity"
+                    android:textAlignment="center">
+                </TextView>
+
+            </LinearLayout>
+
             <LinearLayout
                 android:layout_width="150sp"
                 android:layout_height="120sp"
@@ -109,7 +159,6 @@
 
 
             </LinearLayout>
-
 
         </LinearLayout>
 

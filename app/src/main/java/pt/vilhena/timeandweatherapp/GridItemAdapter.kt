@@ -17,6 +17,7 @@ class GridItemAdapter(
 ) : BaseAdapter() {
 
     lateinit var cityNameTextView : TextView
+    lateinit var weatherDescription: TextView
     lateinit var cityTemperature : TextView
     lateinit var cityHumidity: TextView
     lateinit var weatherImage: ImageView
@@ -38,6 +39,7 @@ class GridItemAdapter(
         var view: View = View.inflate(context, R.layout.grid_item, null)
 
         cityNameTextView = view.findViewById(R.id.cityNameTextField)
+        weatherDescription = view.findViewById(R.id.weatherDescription)
         cityTemperature = view.findViewById(R.id.temperature)
         cityHumidity = view.findViewById(R.id.humidity)
         weatherImage = view.findViewById(R.id.weatherImage)
@@ -47,6 +49,7 @@ class GridItemAdapter(
         val icon = currentWeather?.get(0)?.getIcon()
 
         cityNameTextView.text = choosedCity.name
+        weatherDescription.text = choosedCity.currentWeather?.getWeather()?.get(0)?.getDescription()
         cityTemperature.text = choosedCity.currentWeather?.getMain()?.getTemp().toString() + "º"
         cityHumidity.text = choosedCity.currentWeather?.getMain()?.getHumidity().toString() + "%"
 

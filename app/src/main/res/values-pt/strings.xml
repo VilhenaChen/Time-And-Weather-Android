@@ -15,4 +15,5 @@
     <string name="FellsLike">Sensação</string>
     <string name="MinMaxTemperature">Minima/Maxima</string>
     <string name="wind">Vento</string>
+    <string name="humidity">Humidade</string>
 </resources>

@@ -14,4 +14,5 @@
     <string name="FellsLike">Fells Like</string>
     <string name="MinMaxTemperature">Min/Max</string>
     <string name="wind">Wind</string>
+    <string name="humidity">Humidity</string>
 </resources>
