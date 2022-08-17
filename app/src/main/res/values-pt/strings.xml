@@ -11,4 +11,8 @@
     <string name="Dublin">Dublin</string>
     <string name="Prague">Praga</string>
     <string name="Vienna">Viena</string>
+    <string name="CurrentTemperature">Temperatura Atual</string>
+    <string name="FellsLike">Sensação</string>
+    <string name="MinMaxTemperature">Minima/Maxima</string>
+    <string name="wind">Vento</string>
 </resources>

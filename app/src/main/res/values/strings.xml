@@ -10,4 +10,8 @@
     <string name="Dublin">Dublin</string>
     <string name="Prague">Prague</string>
     <string name="Vienna">Vienna</string>
+    <string name="CurrentTemperature">Current Temperature</string>
+    <string name="FellsLike">Fells Like</string>
+    <string name="MinMaxTemperature">Min/Max</string>
+    <string name="wind">Wind</string>
 </resources>

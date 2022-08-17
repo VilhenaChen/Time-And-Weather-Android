@@ -51,7 +51,7 @@ class GridItemAdapter(
         cityHumidity.text = choosedCity.currentWeather?.getMain()?.getHumidity().toString() + "%"
 
         val iconURL = "http://openweathermap.org/img/wn/" + icon +".png"
-        Picasso.get().load(iconURL).fit().into(weatherImage, object: Callback {
+        Picasso.get().load(iconURL).placeholder(R.drawable._0d).resize(300,300).into(weatherImage, object: Callback {
             override fun onSuccess() {
                 println("Got Image from: " + choosedCity.name)
                 notifyDataSetChanged()

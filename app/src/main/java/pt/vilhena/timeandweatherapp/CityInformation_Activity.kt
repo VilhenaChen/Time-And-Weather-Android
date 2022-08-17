@@ -4,10 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
-import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
 import pt.vilhena.timeandweatherapp.model.WeatherResponse
-import java.lang.Exception
 
 class CityInformation_Activity : AppCompatActivity() {
     private lateinit var cityName: String
@@ -24,22 +22,24 @@ class CityInformation_Activity : AppCompatActivity() {
 
     fun viewBindings() {
         val image: ImageView = findViewById(R.id.weatherImage)
-        val cityNameTextView: TextView = findViewById(R.id.cityNameTextField)
-        val cityWeatherTextView: TextView = findViewById(R.id.temperature)
-        val feelsLike: TextView = findViewById(R.id.fellsLike)
-        val minTemperature: TextView = findViewById(R.id.minTemp)
-        val maxTemperature: TextView = findViewById(R.id.maxTemp)
+        val cityName: TextView = findViewById(R.id.cityName)
+        //val weatherDescription: TextView = findViewById(R.id.weatherDescription)
+        val currentTemperature: TextView = findViewById(R.id.currentTemperature)
+        //val feelsLike: TextView = findViewById(R.id.fellsLike)
+        val minMaxTemperature: TextView = findViewById(R.id.minMaxTemp)
+        //val maxTemperature: TextView = findViewById(R.id.maxTemp)
 
         val icon = weather.getWeather()?.get(0)?.getIcon()
 
         val iconURL = "http://openweathermap.org/img/wn/" + icon +".png"
         Picasso.get().load(iconURL).into(image)
 
-        cityNameTextView.text = cityName
-        cityWeatherTextView.text = weather.getMain()?.getTemp().toString() + "º"
-        feelsLike.text = weather.getMain()?.getFeelsLike().toString() + "º"
-        minTemperature.text = weather.getMain()?.getTempMin().toString() + "º"
-        maxTemperature.text = weather.getMain()?.getTempMax().toString() + "º"
+        cityName.text = this.cityName
+        //weatherDescription.text = weather.getWeather()?.get(0)?.getDescription()
+        currentTemperature.text = weather.getMain()?.getTemp().toString() + "º"
+        //feelsLike.text = weather.getMain()?.getFeelsLike().toString() + "º"
+        minMaxTemperature.text = weather.getMain()?.getTempMin().toString() + "º" + "/" + weather.getMain()?.getTempMax().toString() + "º"
+        //maxTemperature.text = weather.getMain()?.getTempMax().toString() + "º"
 
     }
 }
