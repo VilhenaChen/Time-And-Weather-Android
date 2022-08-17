@@ -1,4 +1,4 @@
-package pt.vilhena.timeandweatherapp
+package pt.vilhena.timeandweatherapp.model
 
 import android.content.Context
 import android.view.View
@@ -8,7 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso
-import pt.vilhena.timeandweatherapp.model.CityModel
+import pt.vilhena.timeandweatherapp.R
 import java.lang.Exception
 
 class GridItemAdapter(
@@ -36,7 +36,7 @@ class GridItemAdapter(
 
     override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
 
-        var view: View = View.inflate(context, R.layout.grid_item, null)
+        val view: View = View.inflate(context, R.layout.grid_item, null)
 
         cityNameTextView = view.findViewById(R.id.cityNameTextField)
         weatherDescription = view.findViewById(R.id.weatherDescription)
@@ -44,7 +44,7 @@ class GridItemAdapter(
         cityHumidity = view.findViewById(R.id.humidity)
         weatherImage = view.findViewById(R.id.weatherImage)
 
-        var choosedCity = citiesName[p0]
+        val choosedCity = citiesName[p0]
         val currentWeather = choosedCity.currentWeather?.getWeather()
         val icon = currentWeather?.get(0)?.getIcon()
 

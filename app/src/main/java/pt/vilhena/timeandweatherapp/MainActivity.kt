@@ -6,13 +6,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.AdapterView
 import android.widget.GridView
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.google.android.gms.location.LocationServices
 import pt.vilhena.timeandweatherapp.data.Data
-import pt.vilhena.timeandweatherapp.model.CityModel
-import java.util.jar.Manifest
+import pt.vilhena.timeandweatherapp.model.GridItemAdapter
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,12 +23,14 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Check if the app has permission to access the user location
         if(ContextCompat.checkSelfPermission(applicationContext, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), 2)
         }
 
         val fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
+        // Get the last location, latitude and longitude
         fusedLocationClient.lastLocation.addOnSuccessListener { location ->
             if (location != null) {
                 lat = location.latitude
@@ -39,14 +39,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         gridView = findViewById(R.id.grid)
-        var gridAdapter = GridItemAdapter(applicationContext, data.citiesArrayList)
+        val gridAdapter = GridItemAdapter(applicationContext, data.citiesArrayList)
         data.gridAdapter = gridAdapter
         gridView.adapter = gridAdapter
+
         data.getWeatherCurrentLocation(lat,long)
         data.getWeatherFromAPI()
+
+        // When a city card is clicked, the activity with more detailed weather information is showed
         gridView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, i, l ->
-            Toast.makeText(applicationContext, "You clicked on " + data.citiesArrayList[+i].name,
-            Toast.LENGTH_SHORT).show()
             val intent = Intent(this, CityInformation_Activity::class.java)
             intent.putExtra("cityName", data.citiesArrayList[+i].name)
             intent.putExtra("cityWeather", data.citiesArrayList[+i].currentWeather)

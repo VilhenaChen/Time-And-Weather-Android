@@ -1,7 +1,7 @@
 package pt.vilhena.timeandweatherapp.data
 
 import android.util.Log
-import pt.vilhena.timeandweatherapp.GridItemAdapter
+import pt.vilhena.timeandweatherapp.model.GridItemAdapter
 import pt.vilhena.timeandweatherapp.data.retrofit.RetrofitInitializer
 import pt.vilhena.timeandweatherapp.model.CityModel
 import pt.vilhena.timeandweatherapp.model.WeatherResponse
@@ -18,6 +18,7 @@ class Data {
 
     var citiesArrayList = ArrayList<CityModel>()
 
+    // Function to get the current weather information for the current location
     fun getWeatherCurrentLocation(lat: Double, long: Double) {
         val call = RetrofitInitializer().weatherService()
             .getWeatherbyLatAndLong(lat.toString(), long.toString(), apiKey)
@@ -27,7 +28,7 @@ class Data {
                 response: Response<WeatherResponse?>
             ) {
                 if (response.body() != null) {
-                    var weather = response.body()
+                    val weather = response.body()
                     if (weather != null) {
                         citiesArrayList.add(CityModel("Current Location", weather))
                         Log.d(TAG, "Weather on ${weather.getName()} is ${
@@ -40,11 +41,12 @@ class Data {
             }
 
             override fun onFailure(call: Call<WeatherResponse?>, t: Throwable) {
-
+                Log.d(TAG, "Error gettin API information for current location")
             }
         })
     }
 
+    // Function to get the current weather information for the default cities
     fun getWeatherFromAPI() {
 
         val defaultCities = arrayOf("Lisbon", "Madrid", "Paris", "Berlin", "Copenhagen", "Rome", "London", "Dublin", "Prague", "Vienna")
@@ -57,7 +59,7 @@ class Data {
                     response: Response<WeatherResponse?>
                 ) {
                     if (response.body() != null) {
-                        var weather = response.body()
+                        val weather = response.body()
                         if (weather != null) {
                             citiesArrayList.add(CityModel(weather.getName(), weather))
                             Log.d(TAG, "Weather on ${weather.getName()} is ${
@@ -70,6 +72,7 @@ class Data {
                 }
 
                 override fun onFailure(call: Call<WeatherResponse?>, t: Throwable) {
+                    Log.d(TAG, "Error gettin API information " + t.message)
                 }
             })
         }
