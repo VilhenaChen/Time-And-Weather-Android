@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Time and Weatherapp</string>
+    <string name="app_name">WIT Weather</string>
     <string name="Lisbon">Lisboa</string>
     <string name="Madrid">Madrid</string>
     <string name="Paris">Paris</string>
