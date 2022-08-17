@@ -16,4 +16,5 @@
     <string name="MinMaxTemperature">Minima/Maxima</string>
     <string name="wind">Vento</string>
     <string name="humidity">Humidade</string>
+    <string name="weatherDescription">Descrição do estado do tempo</string>
 </resources>
