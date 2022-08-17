@@ -26,7 +26,6 @@ class Data {
                 call: Call<WeatherResponse?>,
                 response: Response<WeatherResponse?>
             ) {
-                Log.d(TAG, "Web Response code: ${response.code()}")
                 if (response.body() != null) {
                     var weather = response.body()
                     if (weather != null) {
@@ -36,8 +35,6 @@ class Data {
                         }")
                         citiesArrayList.sortWith(compareBy({ it.name }))
                         gridAdapter.notifyDataSetChanged()
-                    } else {
-                        println("NULL")
                     }
                 }
             }
@@ -59,7 +56,6 @@ class Data {
                     call: Call<WeatherResponse?>,
                     response: Response<WeatherResponse?>
                 ) {
-                    Log.d(TAG, "Web Response code: ${response.code()}")
                     if (response.body() != null) {
                         var weather = response.body()
                         if (weather != null) {
@@ -69,14 +65,11 @@ class Data {
                             }")
                             citiesArrayList.sortWith(compareBy({ it.name }))
                             gridAdapter.notifyDataSetChanged()
-                        } else {
-                            println("NULL")
                         }
                     }
                 }
 
                 override fun onFailure(call: Call<WeatherResponse?>, t: Throwable) {
-                    TODO("Not yet implemented")
                 }
             })
         }

@@ -7,9 +7,13 @@
     tools:context=".CityInformation_Activity">
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:gravity="center">
 
         <ImageView
@@ -22,73 +26,129 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/cityNameTextField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="City"
-                android:textSize="25sp"
-                android:textAlignment="center">
-            </TextView>
+                android:textAlignment="center"
+                android:textSize="25sp"></TextView>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
+                android:background="@drawable/round_rec_only_border"
                 android:gravity="center"
-                android:background="@drawable/round_rec_only_border">
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/temperature"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="35C"
-                        android:layout_marginLeft="20sp"
-                        android:layout_marginRight="20sp"
-                        android:layout_marginTop="10sp">
-                    </TextView>
-                    <TextView
-                        android:id="@+id/fellsLike"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Fells like"
-                        android:layout_marginLeft="20sp"
-                        android:layout_marginRight="20sp"
-                        android:layout_marginTop="10sp">
-                    </TextView>
+                    <LinearLayout
+                        android:layout_width="40sp"
+                        android:layout_height="20sp"
+                        android:background="@drawable/round_rec"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="15dp">
+
+                        <ImageView
+                            android:layout_width="10sp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_mintemperatureicon">
+                        </ImageView>
+
+                        <TextView
+                            android:id="@+id/temperature"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="35º">
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="40sp"
+                        android:layout_height="20sp"
+                        android:background="@drawable/round_rec"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        >
+
+                        <ImageView
+                            android:layout_width="10sp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_mintemperatureicon">
+                        </ImageView>
+
+                        <TextView
+                            android:id="@+id/fellsLike"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="34º">
+                        </TextView>
+
+                    </LinearLayout>
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:gravity="center">
-                    <TextView
-                        android:id="@+id/minTemp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="MinTemp"
-                        android:layout_marginLeft="20sp"
-                        android:layout_marginRight="20sp"
-                        android:layout_marginBottom="10sp">
-                    </TextView>
-                    <TextView
-                        android:id="@+id/maxTemp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="MaxTemp"
-                        android:layout_marginLeft="20sp"
-                        android:layout_marginRight="20sp"
-                        android:layout_marginBottom="10sp">
-                    </TextView>
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="40sp"
+                        android:layout_height="20sp"
+                        android:background="@drawable/round_rec"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginRight="15dp">
+
+                        <ImageView
+                            android:layout_width="10sp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_mintemperatureicon">
+                        </ImageView>
+
+                        <TextView
+                            android:id="@+id/minTemp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="18º">
+                        </TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="40sp"
+                        android:layout_height="20sp"
+                        android:background="@drawable/round_rec"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="10dp">
+
+                        <ImageView
+                            android:layout_width="10sp"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_maxtemperatureicon">
+                        </ImageView>
+
+                        <TextView
+                            android:id="@+id/maxTemp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="25º"></TextView>
+                    </LinearLayout>
+
 
                 </LinearLayout>
 

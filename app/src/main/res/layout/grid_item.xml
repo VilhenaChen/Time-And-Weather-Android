@@ -81,11 +81,10 @@
 
                     <ImageView
                         android:id="@+id/weatherImage"
-                        android:layout_width="wrap_content"
+                        android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/lisbontrain">
-                    </ImageView>
+                        android:src="@drawable/lisbontrain"></ImageView>
 
                 </RelativeLayout>
 

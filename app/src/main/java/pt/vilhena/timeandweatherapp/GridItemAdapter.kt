@@ -63,7 +63,6 @@ class GridItemAdapter(
             }
         })
 
-
         return view
     }
 
