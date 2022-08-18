@@ -31,7 +31,7 @@ class Data {
                     val weather = response.body()
                     if (weather != null) {
                         citiesArrayList.add(CityModel("Current Location", weather))
-                        Log.d(TAG, "Weather on ${weather.getName()} is ${
+                        Log.d(TAG, "Weather on Current Location is ${
                             weather.getMain()?.getTemp()
                         }")
                         citiesArrayList.sortWith(compareBy({ it.name }))

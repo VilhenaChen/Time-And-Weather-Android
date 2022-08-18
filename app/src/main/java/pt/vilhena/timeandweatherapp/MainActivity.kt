@@ -30,20 +30,20 @@ class MainActivity : AppCompatActivity() {
 
         val fusedLocationClient = LocationServices.getFusedLocationProviderClient(this)
 
-        // Get the last location, latitude and longitude
-        fusedLocationClient.lastLocation.addOnSuccessListener { location ->
-            if (location != null) {
-                lat = location.latitude
-                long = location.longitude
-            }
-        }
-
         gridView = findViewById(R.id.grid)
         val gridAdapter = GridItemAdapter(applicationContext, data.citiesArrayList)
         data.gridAdapter = gridAdapter
         gridView.adapter = gridAdapter
 
-        data.getWeatherCurrentLocation(lat,long)
+        // Get the last location, latitude and longitude
+        fusedLocationClient.lastLocation.addOnSuccessListener { location ->
+            if (location != null) {
+                lat = location.latitude
+                long = location.longitude
+                data.getWeatherCurrentLocation(lat,long)
+            }
+        }
+
         data.getWeatherFromAPI()
 
         // When a city card is clicked, the activity with more detailed weather information is showed

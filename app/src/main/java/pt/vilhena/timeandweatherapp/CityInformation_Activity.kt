@@ -36,11 +36,7 @@ class CityInformation_Activity : AppCompatActivity() {
         val iconURL = "http://openweathermap.org/img/wn/" + icon +".png"
         Picasso.get().load(iconURL).placeholder(R.drawable._0d).into(image)
 
-        if( weather.getSys()?.getCountry() != null) {
-            cityName.text = this.cityName + ", " + (weather.getSys()?.getCountry())
-        } else {
-            cityName.text = this.cityName
-        }
+        cityName.text = this.cityName + ", " + (weather.getSys()?.getCountry())
         weatherDescription.text = weather.getWeather()?.get(0)?.getDescription()
         currentTemperature.text = weather.getMain()?.getTemp().toString() + "º"
         minMaxTemperature.text = weather.getMain()?.getTempMin().toString() + "º" + " / " + weather.getMain()?.getTempMax().toString() + "º"
