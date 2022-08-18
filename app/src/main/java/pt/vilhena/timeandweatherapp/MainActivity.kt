@@ -15,9 +15,9 @@ import pt.vilhena.timeandweatherapp.model.GridItemAdapter
 class MainActivity : AppCompatActivity() {
 
     private lateinit var gridView: GridView
-    val data = Data()
-    var lat: Double = 0.0
-    var long: Double = 0.0
+    private val data = Data()
+    private var lat: Double = 0.0
+    private var long: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,8 +47,8 @@ class MainActivity : AppCompatActivity() {
         data.getWeatherFromAPI()
 
         // When a city card is clicked, the activity with more detailed weather information is showed
-        gridView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, i, l ->
-            val intent = Intent(this, CityInformation_Activity::class.java)
+        gridView.onItemClickListener = AdapterView.OnItemClickListener { _, _, i, _ ->
+            val intent = Intent(this, CityInformationActivity::class.java)
             intent.putExtra("cityName", data.citiesArrayList[+i].name)
             intent.putExtra("cityWeather", data.citiesArrayList[+i].currentWeather)
             startActivity(intent)

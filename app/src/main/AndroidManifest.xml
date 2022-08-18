@@ -19,7 +19,7 @@
         android:theme="@style/Theme.TimeAndWeatherapp"
         tools:targetApi="31">
         <activity
-            android:name=".CityInformation_Activity"
+            android:name=".CityInformationActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

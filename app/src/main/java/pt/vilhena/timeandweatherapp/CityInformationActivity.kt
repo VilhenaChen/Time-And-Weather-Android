@@ -7,7 +7,7 @@ import android.widget.TextView
 import com.squareup.picasso.Picasso
 import pt.vilhena.timeandweatherapp.model.WeatherResponse
 
-class CityInformation_Activity : AppCompatActivity() {
+class CityInformationActivity : AppCompatActivity() {
     private lateinit var cityName: String
     private lateinit var weather: WeatherResponse
 
@@ -22,7 +22,7 @@ class CityInformation_Activity : AppCompatActivity() {
         viewBindings()
     }
 
-    fun viewBindings() {
+    private fun viewBindings() {
         val image: ImageView = findViewById(R.id.weatherImage)
         val cityName: TextView = findViewById(R.id.cityName)
         val weatherDescription: TextView = findViewById(R.id.weatherDescription)
@@ -33,14 +33,14 @@ class CityInformation_Activity : AppCompatActivity() {
 
         val icon = weather.getWeather()?.get(0)?.getIcon()
 
-        val iconURL = "http://openweathermap.org/img/wn/" + icon +".png"
+        val iconURL = "http://openweathermap.org/img/wn/$icon.png"
         Picasso.get().load(iconURL).placeholder(R.drawable._0d).into(image)
 
-        cityName.text = this.cityName + ", " + (weather.getSys()?.getCountry())
+        cityName.text = String.format(getString(R.string.CityNameUI), this.cityName, weather.getSys()?.getCountry())
         weatherDescription.text = weather.getWeather()?.get(0)?.getDescription()
-        currentTemperature.text = weather.getMain()?.getTemp().toString() + "º"
-        minMaxTemperature.text = weather.getMain()?.getTempMin().toString() + "º" + " / " + weather.getMain()?.getTempMax().toString() + "º"
-        humidity.text = weather.getMain()?.getHumidity().toString() + "%"
-        wind.text = weather.getWind()?.getSpeed().toString() + " Km/h"
+        currentTemperature.text = String.format(getString(R.string.TemperatureUI), weather.getMain()?.getTemp())
+        minMaxTemperature.text = String.format(getString(R.string.MinMaxTempUI), weather.getMain()?.getTempMin(), weather.getMain()?.getTempMax())
+        humidity.text = String.format(getString(R.string.HumitidyUI, weather.getMain()?.getHumidity()))
+        wind.text = String.format(getString(R.string.WindUI), weather.getWind()?.getSpeed())
     }
 }

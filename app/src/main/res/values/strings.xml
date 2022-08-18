@@ -16,4 +16,9 @@
     <string name="wind">Wind</string>
     <string name="humidity">Humidity</string>
     <string name="weatherDescription">Weather Description</string>
+    <string name="MinMaxTempUI">%.2fº / %.2fº</string>
+    <string name="HumitidyUI">"%d "</string>
+    <string name="WindUI">%.2f Km/h</string>
+    <string name="CityNameUI">%s , %s</string>
+    <string name="TemperatureUI">%.2f º</string>
 </resources>

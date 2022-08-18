@@ -11,8 +11,8 @@ import retrofit2.Response
 
 class Data {
     // API Key for the OpenWeatherAPI
-    val apiKey = "89091a130eb1583961e45663f9068cce"
-    val TAG = "Weather App Log"
+    private val apiKey = "89091a130eb1583961e45663f9068cce"
+    private val TAG = "Weather App Log"
 
     lateinit var gridAdapter: GridItemAdapter
 
@@ -34,14 +34,14 @@ class Data {
                         Log.d(TAG, "Weather on Current Location is ${
                             weather.getMain()?.getTemp()
                         }")
-                        citiesArrayList.sortWith(compareBy({ it.name }))
+                        citiesArrayList.sortWith(compareBy { it.name } )
                         gridAdapter.notifyDataSetChanged()
                     }
                 }
             }
 
             override fun onFailure(call: Call<WeatherResponse?>, t: Throwable) {
-                Log.d(TAG, "Error gettin API information for current location")
+                Log.d(TAG, "Error getting API information for current location")
             }
         })
     }
@@ -65,14 +65,14 @@ class Data {
                             Log.d(TAG, "Weather on ${weather.getName()} is ${
                                 weather.getMain()?.getTemp()
                             }")
-                            citiesArrayList.sortWith(compareBy({ it.name }))
+                            citiesArrayList.sortWith(compareBy { it.name })
                             gridAdapter.notifyDataSetChanged()
                         }
                     }
                 }
 
                 override fun onFailure(call: Call<WeatherResponse?>, t: Throwable) {
-                    Log.d(TAG, "Error gettin API information " + t.message)
+                    Log.d(TAG, "Error getting API information " + t.message)
                 }
             })
         }

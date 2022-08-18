@@ -9,7 +9,7 @@ class RetrofitInitializer {
     // Responsible for creating Retrofit objects
     // The baseURl is the url used to make every request
     // Using the GSON converter to convert the JSON to java class
-    val retrofit = Retrofit.Builder()
+    private val retrofit = Retrofit.Builder()
         .baseUrl("https://api.openweathermap.org/")
         .addConverterFactory(GsonConverterFactory.create())
         .build()
